@@ -111,3 +111,9 @@ that will result in a graph similar to this:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgements
+
+Stanford University providing the [EEG Dataset](http://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0135697.g001)
+
+University of Freiburg for source model that this convolutional neural network was based off of. [University of Freiburg](https://arxiv.org/abs/1703.05051)
