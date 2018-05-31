@@ -102,7 +102,7 @@ python3 plotthejson.py -d source_model -a acc -s 0 -e 20
 ```
 that will result in a graph similar to this:
 <p align="center">
-  <img src="https://drive.google.com/open?id=1ZjXls8SKn0wwbiauLqenhH5rYFVASFe4" width="350"/>
+  <img src="http://georgiosroros.com/wp-content/uploads/2018/05/braindecodinglosssource_model_acc_50.png" width="350"/>
 </p>
 ## Authors
 
