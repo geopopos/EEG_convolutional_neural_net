@@ -6,15 +6,42 @@ This repository houses a convolutional neural network built using the [Keras mac
   <img src="http://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0135697.g001" width="350"/>
 </p>
 
+The convolutional neural network is based off of a net created from Filter Bank Common Spatial Patterns the original neural network can be found [here](https://arxiv.org/abs/1703.05051)
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-###Prerequisites
+### Prerequisites
 
 There are a few prerequisites needed before running this project on your machine
+- First, you must have a copy of python 3.5.0 or higher and pip installed on your machine
+- Next, you will need the python libraries listed below
 ```
 numpy==1.14.0
 Keras==2.1.3
 scipy==0.18.1
 matplotlib==1.5.3
 ```
+- Lastly, you will need a copy of the [preprocessed eeg data](https://www.dropbox.com/s/9udeedmagnanf4n/preprocessed_data.zip?dl=0) used for this convolutional neural network.
+
+### Installing
+
+Assuming python 3 is already installed you will need to install pip on your machine.
+
+You can do so by running the following command on your linux machine
+```
+apt install python3-pip
+```
+
+Next, install numpy, scipy, and matplotlib
+```
+pip install numpy
+pip install scipy
+pip install matplotlib
+```
+
+Keras installation is quite lengthy so I will refer you to the [Documentation](https://keras.io/#installation) for your reading.
+
+Now download the [preprocessed data](https://www.dropbox.com/s/9udeedmagnanf4n/preprocessed_data.zip?dl=0)
+Extract the ```preprocessed_data.zip file```
+Store the ```preprocessed_data/``` folder in the root directory of the project
