@@ -1,9 +1,0 @@
-README.txt
--04/05/2018:
-	+added 'grnnf/' directory to PYTHONPATH in .bashrc
-	       -this allows me to acces the methods i created in that folder to load data, models, and their weights
-	+added worked on storing preprocessed data to JSON
-	       !1:when retrieving the preprocessed data the entire mat file is displayed instead of the "X_2D" data
-	       -1:I was pulling th JSON for the model structure instead of the preprocessed data
-	       -1:still a problem reloading the json after it has been saved to file
-	       ✓1:The save_data() function was saving the first key "{'Y_train':" to file and that was all oops 0_o
