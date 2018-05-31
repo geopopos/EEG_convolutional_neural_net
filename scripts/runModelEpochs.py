@@ -8,19 +8,26 @@ from keras import backend as K
 
 import numpy as np
 
-import sys, json
+import sys, json, argparse
 
 from grnnf import model_manip, data_manip
 
+ap = argparse.ArgumentParser()
+ap.add_argument("-d", "--description", required = True, help = "Provide a descriptor for this new neural network structure")
+ap.add_argument("-e", "--epochs", required = True, help = "Provide number of epochs to run train net")
+ap.add_argument("-i", "--increment", required = True, help = "Provide the increment by which epochs should increase `default is 1`")
+ap.add_argument("-s", "--start", required = False, help = "Provide the starting epoch for training")
+args = vars(ap.parse_args())
+
 #system arguments
-description = sys.argv[1]
+description = args["description"]
 model_file = "../models/structure/model" + description + ".json"
 #description = model_file.split("/model")[2].split(".json")[0]
-epoch_range = int(sys.argv[2])
-epoch_inc = int(sys.argv[3])
+epoch_range = int(args["epochs"])
+epoch_inc = int(args["increment"])
 epoch_start = None
-if len(sys.argv) > 4:
-    epoch_start = sys.argv[4]
+if args["start"] is not None:
+    epoch_start = int(args["start"])
 
 data_dict = data_manip.load_data("../preprocessed_data/ppd_exemplar.json")
 

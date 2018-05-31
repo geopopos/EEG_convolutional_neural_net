@@ -1,4 +1,4 @@
-import sys, random, time, json
+import sys, random, time, json, os, argparse
 
 import numpy as np
 
@@ -16,17 +16,11 @@ from keras import backend as K
 
 from grnnf import parse_data, model_manip, data_manip
 
-description = ""
-if sys.argv[2] != None:
-    description = sys.argv[2]
-else:
-    description = str(time.time())
+ap = argparse.ArgumentParser()
+ap.add_argument("-d", "--description", required = True, help = "provide a descriptor for this new neural network structure")
+args = vars(ap.parse_args())
 
-data_dict = data_manip.load_data("../preprocessed_data/ppd_exemplar.json") #parse_data.parse_data("../../../data/")
-X_train = np.array(data_dict["X_train"])
-Y_train = np.array(data_dict["Y_train"])
-X_test = np.array(data_dict["X_test"])
-Y_test = np.array(data_dict["Y_test"])
+description = args["description"]
 
 model = Sequential()
 
@@ -41,7 +35,6 @@ model.add(Lambda(lambda x: x ** 2))
 model.add(Reshape((40,28,1)))
 model.add(AveragePooling2D((1, 5), (1, 1)))
 #model.add(Activation("relu"))
-#literal garbage
 #model.add(Lambda(logIt))
 model.add(Flatten())
 model.add(Dense(72, activation="softmax"))
@@ -52,29 +45,6 @@ model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accur
 #save model structure as json to 'model/structure/'
 model_manip.save_model("../models/structure/model" + description + ".json", model)
 
-def modelExecute(epochs):
-#    model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
-    history = model.fit(X_train, Y_train, batch_size=32, epochs=epochs, validation_data=(X_test, Y_test))
-
-    test_score = model.evaluate(X_test, Y_test, verbose=0)
-
-    return history.history
-
-epochs = int(sys.argv[1])
-scores = modelExecute(epochs)
-
-epochs_array = list(range(1,epochs+1))
-train_loss_array = scores["loss"]
-test_loss_array = scores["val_loss"]
-train_accuracy_array = scores["acc"]
-test_accuracy_array = scores["val_acc"]
-
-#save train/test loss and accuracy as json to 'data_dump/'
-with open("../data_dumps/training-test-history" + description + ".json", "w") as outputscore:
-    json.dump(scores, outputscore)
-
-#save model structure as json to 'model/structure/'
-#model_manip.save_model("../models/structure/model" + description + ".json", model)
-
-#save model weights as hdf5 to 'model/weights/'
-model.save_weights("../models/weights/model" + description + ".h5")
+directory = "../models/weights/" + description + "/"
+if not os.path.exists(directory):
+    os.makedirs(directory)

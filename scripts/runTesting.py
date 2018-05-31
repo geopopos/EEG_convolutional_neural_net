@@ -8,7 +8,7 @@ from keras import backend as K
 
 import numpy as np
 
-import sys, json, fileinput
+import sys, json, fileinput, argparse
 
 from os import listdir
 
@@ -16,12 +16,19 @@ from os.path import isfile, join
 
 from grnnf import model_manip, data_manip
 
-description = sys.argv[1]
+ap = argparse.ArgumentParser()
+ap.add_argument("-d", "--description", required = True, help = "Provide a descriptor for this new neural network structure")
+ap.add_argument("-s", "--start", required = False, help = "Provide the starting epoch for testing")
+ap.add_argument("-e", "--end", required = False, help = "Provide the ending epoch for testing")
+args = vars(ap.parse_args())
+
+description = args["description"]
 start_epoch = None
 end_epoch = None
-if len(sys.argv) > 3:
-    start_epoch = int(sys.argv[2])
-    end_epoch = int(sys.argv[3])
+if args["start"] is not None:
+    start_epoch = int(args["start"])
+if args["end"] is not None:
+    end_epoch = int(args["end"])
 
 results = {"acc":[], "loss":[], "val_acc":[], "val_loss":[]}
 

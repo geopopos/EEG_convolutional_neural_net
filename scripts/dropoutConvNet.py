@@ -45,7 +45,6 @@ model.add(Reshape((40,23,1)))
 model.add(Dropout(0.4))
 #model.add(AveragePooling2D((1, 10), (1, 2)))
 #model.add(Activation("relu"))
-#literal garbage
 #model.add(Lambda(logIt))
 model.add(Flatten())
 model.add(Dropout(0.4))

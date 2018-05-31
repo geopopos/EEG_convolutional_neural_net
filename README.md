@@ -43,5 +43,5 @@ pip install matplotlib
 Keras installation is quite lengthy so I will refer you to the [Documentation](https://keras.io/#installation) for your reading.
 
 Now download the [preprocessed data](https://www.dropbox.com/s/9udeedmagnanf4n/preprocessed_data.zip?dl=0)
-Extract the ```preprocessed_data.zip file```
+Extract the ```preprocessed_data.zip``` file
 Store the ```preprocessed_data/``` folder in the root directory of the project
