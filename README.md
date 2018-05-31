@@ -104,13 +104,14 @@ that will result in a graph similar to this:
 <p align="center">
   <img src="http://georgiosroros.com/wp-content/uploads/2018/05/braindecodinglosssource_model_acc_50.png" width="350"/>
 </p>
+
 ## Authors
 
 * **Georgios Basilios Roros** - *Initial work* - [George Roros](https://github.com/geopopos)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/geopopos/EEG_convolutionsl_neural_net/blob/master/LICENSE) file for details
 
 ## Acknowledgements
 
