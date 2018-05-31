@@ -1,1 +1,1 @@
-#Convolutional Neural Networks for EEG Data Categorization
+# Convolutional Neural Networks for EEG Data Categorization
