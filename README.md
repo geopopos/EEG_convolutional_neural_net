@@ -46,10 +46,25 @@ Now download the [preprocessed data](https://www.dropbox.com/s/9udeedmagnanf4n/p
 Extract the ```preprocessed_data.zip file```
 Store the ```preprocessed_data/``` folder in the root directory of the project
 
+## Project Layout
+```
+|-- data_dumps/
+|-- graphs/
+|-- models/
+|   |-- figures/
+|   |-- structure/
+|   `-- weights/
+|-- preprocessed_data/
+`-- scripts/
+    `-- grnnf/
+```
+## Running the tests
+
+once all of the prerequisites are donwloaded and installed its time to train and test the neural network on our data
 
 ## Authors
 
-* **Georgios Basilios Roros** - *Initial work* - [Geopopos](https://github.com/geopopos)
+* **Georgios Basilios Roros** - *Initial work* - [George Roros](https://github.com/geopopos)
 
 ## License
 
